@@ -97,26 +97,8 @@ public class Actor extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	private Collection<SocialProfile>	socialProfiles;
-	private Collection<Message>			messages;
-	private Collection<Box>				boxes;
+	private Collection<Box>	boxes;
 
-
-	public Collection<SocialProfile> getSocialProfiles() {
-		return this.socialProfiles;
-	}
-
-	public void setSocialProfiles(final Collection<SocialProfile> socialProfiles) {
-		this.socialProfiles = socialProfiles;
-	}
-
-	public Collection<Message> getMessages() {
-		return this.messages;
-	}
-
-	public void setMessages(final Collection<Message> messages) {
-		this.messages = messages;
-	}
 
 	public Collection<Box> getBoxes() {
 		return this.boxes;

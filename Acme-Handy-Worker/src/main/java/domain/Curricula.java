@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -63,6 +64,7 @@ public class Curricula extends DomainEntity {
 	private HandyWorker						handyWorker;
 
 
+	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	@ElementCollection
 	public Collection<EducationRecord> getEducationalRecords() {
@@ -73,7 +75,7 @@ public class Curricula extends DomainEntity {
 		this.educationalRecords = educationalRecords;
 	}
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	@ElementCollection
 	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
@@ -84,7 +86,7 @@ public class Curricula extends DomainEntity {
 		this.miscellaneousRecords = miscellaneousRecords;
 	}
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	@ElementCollection
 	public Collection<ProfessionalRecord> getProfessionalRecords() {
@@ -95,7 +97,7 @@ public class Curricula extends DomainEntity {
 		this.professionalRecords = professionalRecords;
 	}
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@Valid
 	@ElementCollection
 	public Collection<EndorserRecord> getEndorserRecords() {

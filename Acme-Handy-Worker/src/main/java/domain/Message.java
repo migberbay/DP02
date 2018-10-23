@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -74,6 +75,31 @@ public class Message extends DomainEntity {
 
 	public void setTags(final List<String> tags) {
 		this.tags = tags;
+	}
+
+
+	// Relationships ----------------------------------------------------------
+
+	private Actor	sender;
+	private Actor	receiver;
+
+
+	@ManyToOne(optional = false)
+	public Actor getSender() {
+		return this.sender;
+	}
+
+	public void setSender(final Actor sender) {
+		this.sender = sender;
+	}
+
+	@ManyToOne(optional = false)
+	public Actor getReceiver() {
+		return this.receiver;
+	}
+
+	public void setReceiver(final Actor receiver) {
+		this.receiver = receiver;
 	}
 
 }
