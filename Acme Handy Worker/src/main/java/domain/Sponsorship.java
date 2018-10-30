@@ -1,9 +1,9 @@
+
 package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.URL;
@@ -14,9 +14,10 @@ public class Sponsorship extends DomainEntity {
 
 	// Attributes --------------------------------------------------------------
 
-	private String banner;
-	private String link;
-	private CreditCard creditCard;
+	private String		banner;
+	private String		link;
+	private CreditCard	creditCard;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -53,13 +54,13 @@ public class Sponsorship extends DomainEntity {
 		this.creditCard = creditCard;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Sponsor sponsor;
-	private Tutorial tutorial;
+	private Sponsor		sponsor;
+	private Tutorial	tutorial;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Sponsor getSponsor() {
 		return this.sponsor;
 	}
@@ -68,8 +69,6 @@ public class Sponsorship extends DomainEntity {
 		this.sponsor = sponsor;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Tutorial getTutorial() {
 		return this.tutorial;
 	}

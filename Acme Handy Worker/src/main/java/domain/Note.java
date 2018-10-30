@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -5,10 +6,8 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -26,10 +25,11 @@ public class Note extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Date moment;
-	private String refereeComment;
-	private String customerComment;
-	private String handyWokerComment;
+	private Date	moment;
+	private String	refereeComment;
+	private String	customerComment;
+	private String	handyWokerComment;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -52,51 +52,49 @@ public class Note extends DomainEntity {
 	}
 
 	public String getRefereeComment() {
-		return refereeComment;
+		return this.refereeComment;
 	}
 
-	public void setRefereeComment(String refereeComment) {
+	public void setRefereeComment(final String refereeComment) {
 		this.refereeComment = refereeComment;
 	}
 
 	public String getCustomerComment() {
-		return customerComment;
+		return this.customerComment;
 	}
 
-	public void setCustomerComment(String customerComment) {
+	public void setCustomerComment(final String customerComment) {
 		this.customerComment = customerComment;
 	}
 
 	public String getHandyWokerComment() {
-		return handyWokerComment;
+		return this.handyWokerComment;
 	}
 
-	public void setHandyWokerComment(String handyWokerComment) {
+	public void setHandyWokerComment(final String handyWokerComment) {
 		this.handyWokerComment = handyWokerComment;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Actor actor;
-	private Report report;
+	private Actor	actor;
+	private Report	report;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Actor getActor() {
-		return actor;
+		return this.actor;
 	}
 
-	public void setActor(Actor actor) {
+	public void setActor(final Actor actor) {
 		this.actor = actor;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Report getReport() {
-		return report;
+		return this.report;
 	}
 
-	public void setReport(Report report) {
+	public void setReport(final Report report) {
 		this.report = report;
 	}
 

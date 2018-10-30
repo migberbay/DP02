@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -5,7 +6,6 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -22,12 +22,13 @@ public class FixUpTaskApplication extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Date moment;
-	private Double price;
-	private String status;
-	private String handyWorkerComment;
-	private String customerComment;
-	private CreditCard creditCard;
+	private Date		moment;
+	private Double		price;
+	private String		status;
+	private String		handyWorkerComment;
+	private String		customerComment;
+	private CreditCard	creditCard;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -60,10 +61,10 @@ public class FixUpTaskApplication extends DomainEntity {
 	}
 
 	public Double getPrice() {
-		return price;
+		return this.price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(final Double price) {
 		this.price = price;
 	}
 
@@ -92,13 +93,13 @@ public class FixUpTaskApplication extends DomainEntity {
 		this.creditCard = creditCard;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private FixUpTask fixUpTask;
-	private HandyWorker handyWorker;
+	private FixUpTask	fixUpTask;
+	private HandyWorker	handyWorker;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public FixUpTask getFixUpTask() {
 		return this.fixUpTask;
 	}
@@ -107,8 +108,6 @@ public class FixUpTaskApplication extends DomainEntity {
 		this.fixUpTask = fixUpTask;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}

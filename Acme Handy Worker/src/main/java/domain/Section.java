@@ -1,12 +1,12 @@
+
 package domain;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -17,9 +17,10 @@ public class Section extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String title;
-	private String text;
-	private List<String> pictures;
+	private String				title;
+	private String				text;
+	private Collection<String>	pictures;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -48,7 +49,7 @@ public class Section extends DomainEntity {
 	}
 
 	@URL
-	public List<String> getPictures() {
+	public Collection<String> getPictures() {
 		return this.pictures;
 	}
 
@@ -56,17 +57,17 @@ public class Section extends DomainEntity {
 		this.pictures = pictures;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Tutorial tutorial;
+	private Tutorial	tutorial;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Tutorial getTutorial() {
-		return tutorial;
+		return this.tutorial;
 	}
 
-	public void setTutorial(Tutorial tutorial) {
+	public void setTutorial(final Tutorial tutorial) {
 		this.tutorial = tutorial;
 	}
 }

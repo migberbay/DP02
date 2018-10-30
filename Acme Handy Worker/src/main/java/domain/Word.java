@@ -1,9 +1,11 @@
+
 package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -13,8 +15,9 @@ public class Word extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String word;
-	private TypeWord type;
+	private String	word;
+	private String	type;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -27,19 +30,20 @@ public class Word extends DomainEntity {
 	@NotBlank
 	@Column(unique = true)
 	public String getWord() {
-		return word;
+		return this.word;
 	}
 
-	public void setWord(String word) {
+	public void setWord(final String word) {
 		this.word = word;
 	}
 
 	@NotBlank
-	public TypeWord getType() {
-		return type;
+	@Pattern(regexp = "^SPAM|POSITIVE|NEGATIVE$")
+	public String getType() {
+		return this.type;
 	}
 
-	public void setType(TypeWord type) {
+	public void setType(final String type) {
 		this.type = type;
 	}
 }

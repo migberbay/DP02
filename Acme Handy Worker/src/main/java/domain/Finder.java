@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Collection;
@@ -5,13 +6,9 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
@@ -25,12 +22,13 @@ public class Finder extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String keyword;
-	private Double minPrice;
-	private Double maxPrice;
-	private Date startDate;
-	private Date endDate;
-	private Integer category;
+	private String	keyword;
+	private Double	minPrice;
+	private Double	maxPrice;
+	private Date	startDate;
+	private Date	endDate;
+	private Integer	category;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -92,20 +90,20 @@ public class Finder extends DomainEntity {
 	}
 
 	public Integer getCategory() {
-		return category;
+		return this.category;
 	}
 
-	public void setCategory(Integer category) {
+	public void setCategory(final Integer category) {
 		this.category = category;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private HandyWorker handyWorker;
-	private Collection<FixUpTask> fixUpTasks;
+	private HandyWorker				handyWorker;
+	private Collection<FixUpTask>	fixUpTasks;
 
-	@Valid
-	@OneToOne(optional = false)
+
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -114,14 +112,11 @@ public class Finder extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
-	@Valid
-	@OneToMany
-	@ElementCollection
 	public Collection<FixUpTask> getFixUpTasks() {
-		return fixUpTasks;
+		return this.fixUpTasks;
 	}
 
-	public void setFixUpTasks(Collection<FixUpTask> fixUpTasks) {
+	public void setFixUpTasks(final Collection<FixUpTask> fixUpTasks) {
 		this.fixUpTasks = fixUpTasks;
 	}
 

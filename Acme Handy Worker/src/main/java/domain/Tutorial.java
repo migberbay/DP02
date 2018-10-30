@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -6,10 +7,8 @@ import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -23,10 +22,11 @@ public class Tutorial extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String title;
-	private Date moment;
-	private String summary;
-	private List<String> pictures;
+	private String			title;
+	private Date			moment;
+	private String			summary;
+	private List<String>	pictures;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -75,12 +75,12 @@ public class Tutorial extends DomainEntity {
 		this.pictures = pictures;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private HandyWorker handyWorker;
+	private HandyWorker	handyWorker;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}

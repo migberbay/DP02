@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -5,11 +6,8 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -21,10 +19,11 @@ public class WorkPlanPhase extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String title;
-	private String description;
-	private Date startMoment;
-	private Date endMoment;
+	private String	title;
+	private String	description;
+	private Date	startMoment;
+	private Date	endMoment;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -74,28 +73,26 @@ public class WorkPlanPhase extends DomainEntity {
 		this.endMoment = endMoment;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private FixUpTask fixUpTask;
-	private HandyWorker handyWorker;
+	private FixUpTask	fixUpTask;
+	private HandyWorker	handyWorker;
 
-	@Valid
-	@OneToOne(optional = false)
+
 	public FixUpTask getFixUpTask() {
-		return fixUpTask;
+		return this.fixUpTask;
 	}
 
-	public void setFixUpTask(FixUpTask fixUpTask) {
+	public void setFixUpTask(final FixUpTask fixUpTask) {
 		this.fixUpTask = fixUpTask;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
-		return handyWorker;
+		return this.handyWorker;
 	}
 
-	public void setHandyWorker(HandyWorker handyWorker) {
+	public void setHandyWorker(final HandyWorker handyWorker) {
 		this.handyWorker = handyWorker;
 	}
 

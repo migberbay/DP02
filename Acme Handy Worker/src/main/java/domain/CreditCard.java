@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -6,7 +7,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,11 +19,12 @@ public class CreditCard {
 
 	// Attributes -------------------------------------------------------------
 
-	private String holder;
-	private String brand;
-	private String number;
-	private Date expirationDate;
-	private Integer CVV;
+	private String	holder;
+	private String	brand;
+	private String	number;
+	private Date	expirationDate;
+	private Integer	CVV;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -61,7 +62,6 @@ public class CreditCard {
 		this.number = number;
 	}
 
-	@Future
 	@NotNull
 	public Date getExpirationDate() {
 		return this.expirationDate;

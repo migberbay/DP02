@@ -1,17 +1,13 @@
+
 package domain;
 
 import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -21,8 +17,9 @@ public class Curricula extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String ticker;
-	private PersonalRecord personalRecord;
+	private String			ticker;
+	private PersonalRecord	personalRecord;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -52,64 +49,48 @@ public class Curricula extends DomainEntity {
 		this.personalRecord = personalRecord;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Collection<EducationRecord> educationalRecords;
-	private Collection<MiscellaneousRecord> miscellaneousRecords;
-	private Collection<ProfessionalRecord> professionalRecords;
-	private Collection<EndorserRecord> endorserRecords;
-	private HandyWorker handyWorker;
+	private Collection<EducationRecord>		educationalRecords;
+	private Collection<MiscellaneousRecord>	miscellaneousRecords;
+	private Collection<ProfessionalRecord>	professionalRecords;
+	private Collection<EndorserRecord>		endorserRecords;
+	private HandyWorker						handyWorker;
 
-	@Valid
-	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL)
+
 	public Collection<EducationRecord> getEducationalRecords() {
 		return this.educationalRecords;
 	}
 
-	public void setEducationalRecords(
-			final Collection<EducationRecord> educationalRecords) {
+	public void setEducationalRecords(final Collection<EducationRecord> educationalRecords) {
 		this.educationalRecords = educationalRecords;
 	}
 
-	@Valid
-	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
 		return this.miscellaneousRecords;
 	}
 
-	public void setMiscellaneousRecords(
-			final Collection<MiscellaneousRecord> miscellaneousRecords) {
+	public void setMiscellaneousRecords(final Collection<MiscellaneousRecord> miscellaneousRecords) {
 		this.miscellaneousRecords = miscellaneousRecords;
 	}
 
-	@Valid
-	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<ProfessionalRecord> getProfessionalRecords() {
 		return this.professionalRecords;
 	}
 
-	public void setProfessionalRecords(
-			final Collection<ProfessionalRecord> professionalRecords) {
+	public void setProfessionalRecords(final Collection<ProfessionalRecord> professionalRecords) {
 		this.professionalRecords = professionalRecords;
 	}
 
-	@Valid
-	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<EndorserRecord> getEndorserRecords() {
 		return this.endorserRecords;
 	}
 
-	public void setEndorserRecords(
-			final Collection<EndorserRecord> endorserRecords) {
+	public void setEndorserRecords(final Collection<EndorserRecord> endorserRecords) {
 		this.endorserRecords = endorserRecords;
 	}
 
-	@Valid
-	@OneToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}

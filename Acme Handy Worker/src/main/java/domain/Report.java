@@ -1,15 +1,14 @@
+
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -23,10 +22,11 @@ public class Report extends DomainEntity {
 
 	// Attributes --------------------------------------------------------------
 
-	private Date moment;
-	private String description;
-	private Boolean isDraft;
-	private List<String> attachments;
+	private Date				moment;
+	private String				description;
+	private Boolean				isDraft;
+	private Collection<String>	attachments;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -66,36 +66,34 @@ public class Report extends DomainEntity {
 	}
 
 	@URL
-	public List<String> getAttachments() {
+	public Collection<String> getAttachments() {
 		return this.attachments;
 	}
 
-	public void setAttachments(final List<String> attachments) {
+	public void setAttachments(final Collection<String> attachments) {
 		this.attachments = attachments;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Referee referee;
-	private Complaint complaint;
+	private Referee		referee;
+	private Complaint	complaint;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Referee getReferee() {
-		return referee;
+		return this.referee;
 	}
 
-	public void setReferee(Referee referee) {
+	public void setReferee(final Referee referee) {
 		this.referee = referee;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Complaint getComplaint() {
-		return complaint;
+		return this.complaint;
 	}
 
-	public void setComplaint(Complaint complaint) {
+	public void setComplaint(final Complaint complaint) {
 		this.complaint = complaint;
 	}
 

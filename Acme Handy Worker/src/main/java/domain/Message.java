@@ -1,19 +1,14 @@
+
 package domain;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
@@ -27,12 +22,13 @@ public class Message extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private Date moment;
-	private String body;
-	private String subject;
-	private String priority;
-	private Set<String> tags;
-	private Boolean flagSpam;
+	private Date				moment;
+	private String				body;
+	private String				subject;
+	private String				priority;
+	private Collection<String>	tags;
+	private Boolean				flagSpam;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -82,30 +78,30 @@ public class Message extends DomainEntity {
 		this.priority = priority;
 	}
 
-	public Set<String> getTags() {
+	public Collection<String> getTags() {
 		return this.tags;
 	}
 
-	public void setTags(final Set<String> tags) {
+	public void setTags(final Collection<String> tags) {
 		this.tags = tags;
 	}
 
 	public Boolean getFlagSpam() {
-		return flagSpam;
+		return this.flagSpam;
 	}
 
-	public void setFlagSpam(Boolean flagSpam) {
+	public void setFlagSpam(final Boolean flagSpam) {
 		this.flagSpam = flagSpam;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Actor sender;
-	private Actor recipient;
-	private Collection<Box> boxes;
+	private Actor			sender;
+	private Actor			recipient;
+	private Collection<Box>	boxes;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Actor getSender() {
 		return this.sender;
 	}
@@ -114,8 +110,6 @@ public class Message extends DomainEntity {
 		this.sender = sender;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Actor getReceiver() {
 		return this.recipient;
 	}
@@ -124,15 +118,11 @@ public class Message extends DomainEntity {
 		this.recipient = receiver;
 	}
 
-	@Valid
-	@ElementCollection
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
 	public Collection<Box> getBoxes() {
-		return boxes;
+		return this.boxes;
 	}
 
-	public void setBoxes(Collection<Box> boxes) {
+	public void setBoxes(final Collection<Box> boxes) {
 		this.boxes = boxes;
 	}
 

@@ -1,14 +1,11 @@
+
 package domain;
 
 import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
@@ -21,13 +18,14 @@ public class Actor extends DomainEntity {
 
 	// Attributes -----------------------------------------------------------
 
-	private String name;
-	private String surname;
-	private String middleName;
-	private String photo;
-	private String email;
-	private String phone;
-	private String address;
+	private String	name;
+	private String	surname;
+	private String	middleName;
+	private String	photo;
+	private String	email;
+	private String	phone;
+	private String	address;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -100,18 +98,17 @@ public class Actor extends DomainEntity {
 		this.address = address;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Collection<SocialProfile> socialProfiles;
+	private Collection<SocialProfile>	socialProfiles;
 
-	@Valid
-	@ElementCollection
-	@OneToMany(cascade = CascadeType.ALL)
+
 	public Collection<SocialProfile> getSocialProfiles() {
-		return socialProfiles;
+		return this.socialProfiles;
 	}
 
-	public void setSocialProfiles(Collection<SocialProfile> socialProfiles) {
+	public void setSocialProfiles(final Collection<SocialProfile> socialProfiles) {
 		this.socialProfiles = socialProfiles;
 	}
 

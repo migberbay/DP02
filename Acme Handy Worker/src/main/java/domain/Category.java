@@ -1,11 +1,10 @@
+
 package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -18,7 +17,8 @@ public class Category extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String name;
+	private String	name;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -38,12 +38,12 @@ public class Category extends DomainEntity {
 		this.name = name;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Category parentCategory;
+	private Category	parentCategory;
 
-	@Valid
-	@ManyToOne(optional = true)
+
 	public Category getParentCategory() {
 		return this.parentCategory;
 	}

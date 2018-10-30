@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -5,10 +6,8 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -21,8 +20,9 @@ public class EndorsementCustomer extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String text;
-	private Date moment;
+	private String	text;
+	private Date	moment;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -53,13 +53,13 @@ public class EndorsementCustomer extends DomainEntity {
 		this.moment = moment;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private HandyWorker handyWorker;
-	private Customer customer;
+	private HandyWorker	handyWorker;
+	private Customer	customer;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -68,8 +68,6 @@ public class EndorsementCustomer extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Customer getCustomer() {
 		return this.customer;
 	}

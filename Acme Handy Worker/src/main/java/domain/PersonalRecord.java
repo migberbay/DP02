@@ -1,25 +1,27 @@
+
 package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 
-@Embeddable
+@Entity
 @Access(AccessType.PROPERTY)
-public class PersonalRecord {
+public class PersonalRecord extends DomainEntity {
 
 	// Attributes --------------------------------------------------------------
 
-	private String fullName;
-	private String photo;
-	private String email;
-	private String phone;
-	private String linkedInUrl;
+	private String	fullName;
+	private String	photo;
+	private String	email;
+	private String	phone;
+	private String	linkedInUrl;
+
 
 	// Constructors -----------------------------------------------------------
 

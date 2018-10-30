@@ -1,15 +1,11 @@
+
 package domain;
 
 import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -21,8 +17,9 @@ public class Box extends DomainEntity {
 
 	// Attributes -----------------------------------------------------------
 
-	private String name;
-	private Boolean systemBox;
+	private String	name;
+	private Boolean	systemBox;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -42,37 +39,33 @@ public class Box extends DomainEntity {
 	}
 
 	public Boolean getSystemBox() {
-		return systemBox;
+		return this.systemBox;
 	}
 
-	public void setSystemBox(Boolean systemBox) {
+	public void setSystemBox(final Boolean systemBox) {
 		this.systemBox = systemBox;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Actor actor;
-	private Collection<Message> messages;
+	private Actor				actor;
+	private Collection<Message>	messages;
 
-	@Valid
-	@ElementCollection
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH })
+
 	public Collection<Message> getMessages() {
-		return messages;
+		return this.messages;
 	}
 
-	public void setMessages(Collection<Message> messages) {
+	public void setMessages(final Collection<Message> messages) {
 		this.messages = messages;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Actor getActor() {
-		return actor;
+		return this.actor;
 	}
 
-	public void setActor(Actor actor) {
+	public void setActor(final Actor actor) {
 		this.actor = actor;
 	}
 

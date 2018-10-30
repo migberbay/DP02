@@ -1,3 +1,4 @@
+
 package domain;
 
 import java.util.Date;
@@ -6,10 +7,8 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -23,13 +22,14 @@ public class FixUpTask extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	private String ticker;
-	private Date moment;
-	private String description;
-	private String address;
-	private Double maxPrice;
-	private Date startMoment;
-	private Date endMoment;
+	private String	ticker;
+	private Date	moment;
+	private String	description;
+	private String	address;
+	private Double	maxPrice;
+	private Date	startMoment;
+	private Date	endMoment;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -111,14 +111,14 @@ public class FixUpTask extends DomainEntity {
 		this.endMoment = endMoment;
 	}
 
+
 	// Relationships ----------------------------------------------------------
 
-	private Warranty warranty;
-	private Category category;
-	private Customer customer;
+	private Warranty	warranty;
+	private Category	category;
+	private Customer	customer;
 
-	@Valid
-	@ManyToOne(optional = false)
+
 	public Warranty getWarranty() {
 		return this.warranty;
 	}
@@ -127,8 +127,6 @@ public class FixUpTask extends DomainEntity {
 		this.warranty = warranty;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
 	}
@@ -137,13 +135,11 @@ public class FixUpTask extends DomainEntity {
 		this.category = category;
 	}
 
-	@Valid
-	@ManyToOne(optional = false)
 	public Customer getCustomer() {
-		return customer;
+		return this.customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(final Customer customer) {
 		this.customer = customer;
 	}
 
